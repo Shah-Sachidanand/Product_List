@@ -1,29 +1,19 @@
-import './App.css';
-import React from 'react';
-import LogIn from './Components/LogIn';
-import HomePage from './Components/HomePage'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
-
-import useToken from './Components/UseToken';
-
+import { Routes, Route } from 'react-router-dom';
+import Home from './Components/HomePage';
+import Main from './Components/Main';
+import ProductList from './Components/ProductList';
 
 function App() {
-  const { token, setToken } = useToken();
-  if(!token) {
-    return <LogIn setToken={setToken} />
-  }
-  return ( <div>    
-     <Router>
-      <Routes>
-          <Route path="/" element={<HomePage />}>
-        </Route>
-      </Routes>
-    </Router>
-    </div>
+  return (
+    <div className="App">
+    <Home />
+    <Routes>
+      <Route path='/' element={<Main />} />
+      <Route path='/productlist' element={<ProductList />} />
+
+
+    </Routes>
+  </div>
   );
 }
 

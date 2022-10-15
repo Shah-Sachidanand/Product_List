@@ -1,46 +1,49 @@
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/esm/Button';
-import { useState } from 'react';
-import {addProduct} from '../Actions/Product'
-import {connect} from 'react-redux'
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import '../Assets/css/Product.css'
+
 
 function Product(props) {
 
-  const [product, setProduct] = useState('');
-  const [price, setPrice] = useState('');
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-  props.dispatch(
-    addProduct({
-      product : product,
-      price : price
-    })
-  )
-}
+    const { products } = props.products;
+    const { handleDelete } = props;
 
   const style ={
-    marginTop: '300px',
-    height:'10px',
-    width:'400px',
-  }
-    return (
-      <div justify='space-around' align='middle'>
-      <Form style={style} onSubmit={handleSubmit}>
-      <h4 className='mb-3 '> Lets Add A Product</h4>
-      <Form.Group className="mb-3">
-        <Form.Control type='text'  required onChange={e => setProduct(e.target.value)} placeholder='Product Name'/>
-        <Form.Control className='mt-3' type='number' required onChange={e => setPrice(e.target.value)} placeholder='Price'/>
-      </Form.Group>
-      <Button type='submit'>Add Product</Button>
-      </Form>
-    </div>
-    );
-  }
-  function mapStateToProps(state) {
-    return {
-      state,
-    };
-  }
-  export default connect(mapStateToProps)(Product);
-  
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'baseline',
+  width: '18rem', height:'10rem',
+  marginTop:'30px',
+  marginLeft:'30px'
+}
+
+  // Generate cards for all the products added..
+  return (
+      <div id='container'>
+        <Row>
+          {products && 
+          products.map((product, index) => {
+            return(
+              <Card style={style}>
+                <Card.Body>
+                  <Card.Title>
+                    {product.product} 
+                    <Button className='rbtn' variant="outline-danger" size="sm" onClick={(e) => handleDelete(product)}>
+                        Remove
+                      </Button>
+                  </Card.Title>
+                  <Card.Text>
+                    <span>Price-</span>
+                    {product.price}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            )
+          })}
+        </Row>
+        </div>
+  )}
+
+export default Product;
