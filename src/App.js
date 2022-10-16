@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from './Components/HomePage';
 import Main from './Components/AddProduct';
 import ProductList from './Components/ProductList';
-import useToken from './Components/UseToken';
+import useToken from './Assets/js/UseToken';
 import LogIn from './Components/LogIn';
 import NavBar from './Components/Nav';
 
