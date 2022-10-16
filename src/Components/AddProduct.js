@@ -14,7 +14,6 @@ function Main(props) {
   const [priceVal, setPriceVal] = useState();
 
 const handleSubmit = (e) => {
-  e.preventDefault();
   setPriceVal('');
   setProductVal('');
   props.dispatch(

@@ -25,6 +25,7 @@ function SearchBar(props) {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    marginLeft:'33%',marginTop:'5%', marginRight:'33%'
     
 
 
@@ -40,7 +41,7 @@ function SearchBar(props) {
     marginLeft:'30px'
   }
     return (
-      <div>
+      <div style={{}}>
         <input style={style} role="search" value={search} onChange= {handleSearchChange} className="form-control me-2 d-flex"  type="text" placeholder="Search" aria-label="Search"/>
           <div id='container'>
           <Row>

@@ -12,18 +12,13 @@ function HomePage(props) {
       };
     
     return (
-      <div>      
-
-            <div style={{marginLeft:'33%',marginTop:'5%', marginRight:'33%'}}> 
+       <>      
              <SearchBar
              products = {props.state.products}
              history = {props.history}
              handleDelete = {handleDelete}
              /> 
-             
-             </div>
-
-  </div>
+       </>
     );
   
     }
