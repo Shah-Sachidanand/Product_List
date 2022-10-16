@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, DELETE_PRODUCT,SEARCH_PRODUCT } from "./Actions";
+import { ADD_PRODUCT, DELETE_PRODUCT } from "./Actions";
 
 //ADD Product
 export function addProduct(product) {
@@ -16,13 +16,3 @@ export function addProduct(product) {
       product,
     };
   }
-
-  //Search Product
-
-  export function SearchPoduct(product) {
-    return {
-      type: SEARCH_PRODUCT,
-      product,
-    };
-  }  
-

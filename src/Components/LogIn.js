@@ -1,6 +1,9 @@
 import "../Assets/css/LogIn.css"
 import { useState } from 'react';
 import PropTypes  from "prop-types";
+import { useNavigate } from "react-router-dom";
+import { openNotify } from '../Noty';
+
 
 async function loginUser(credentials) {
   return fetch('https://reqres.in/api/login', {
@@ -13,9 +16,12 @@ async function loginUser(credentials) {
     .then(data => data.json())
  }
 
+
+
 function LogIn({setToken}) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
   const handleSubmit = async e => {
     e.preventDefault();
     const token = await loginUser({
@@ -23,7 +29,13 @@ function LogIn({setToken}) {
       password
     });
     setToken(token);
-  }
+      navigate('/home');
+      openNotify(
+        'success',
+        'You are Logged In',
+        'Welcome To Home Page'
+      );
+  };
   return (
     <div className="Auth-form-container">
     <form onSubmit={handleSubmit} className="Auth-form">

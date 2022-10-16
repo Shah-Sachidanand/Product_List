@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, DELETE_PRODUCT, SEARCH_PRODUCT } from "../Actions/Actions";
+import { ADD_PRODUCT, DELETE_PRODUCT } from "../Actions/Actions";
 
 // initial product state
 const initialState = {
@@ -19,12 +19,6 @@ const initialState = {
             flag: false,
             products: filtered,
           };
-          case SEARCH_PRODUCT:
-            let Searchfiltered = state.products.filter((product) => product.product !== action.product.product);
-            return {
-              flag: false,
-              products: Searchfiltered,
-            };
         default:
       return state;
     }

@@ -1,15 +1,16 @@
 import Product from './Product'
 import {deletePoduct} from '../Actions/Product'
 import {connect} from 'react-redux'
-import SearchBar from './SearchBar';
+
+
 function ProductList(props) {
+  
   const handleDelete = (product) => {
     console.log('delete', product);
     props.dispatch(deletePoduct(product));
   };
     return (
       <div>
-        <SearchBar/>
         <h4 style={{margin:'20px'}}>List Of Added Product - </h4>
         <Product
             products = {props.state.products}
@@ -19,6 +20,7 @@ function ProductList(props) {
       </div>
     );
   }
+
   function mapStateToProps(state) {
     return {
       state,

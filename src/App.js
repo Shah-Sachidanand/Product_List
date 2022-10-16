@@ -1,20 +1,35 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from './Components/HomePage';
-import Main from './Components/Main';
+import HomePage from './Components/HomePage';
+import Main from './Components/AddProduct';
 import ProductList from './Components/ProductList';
+import useToken from './Components/UseToken';
+import LogIn from './Components/LogIn';
+import NavBar from './Components/Nav';
+
+
 
 function App() {
+  const { token, setToken } = useToken();
+
+  if(!token) {
+    return (
+      <Routes>
+      <Route path='/' element={<LogIn setToken={setToken} />} />
+      </Routes>
+    )    
+  }
   return (
     <div className="App">
-    <Home />
+      <NavBar/>
     <Routes>
-      <Route path='/' element={<Main />} />
-      <Route path='/productlist' element={<ProductList />} />
-
-
+      <Route eaxact path='/home' element={<HomePage />} />
+      <Route eaxact path='/addProduct' element={<Main />} />
+      <Route eaxact path='/productlist' element={<ProductList />} />
     </Routes>
   </div>
   );
 }
+
+
 
 export default App;

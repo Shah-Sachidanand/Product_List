@@ -24,7 +24,7 @@ function Product(props) {
       <div id='container'>
         <Row>
           {products && 
-          products.map((product, index) => {
+          products.map((product) => {
             return(
               <Card style={style}>
                 <Card.Body>
