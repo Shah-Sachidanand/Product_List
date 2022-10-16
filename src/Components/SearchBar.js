@@ -21,11 +21,11 @@ function SearchBar(props) {
 
   const style = {
     height:'40px',
-    width:'350px',
+    width:'33.33%',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft:'33%',marginTop:'5%', marginRight:'33%'
+    marginLeft:'33%',marginTop:'5%', marginRight:'33%', marginBottom:'5%'
     
 
 
