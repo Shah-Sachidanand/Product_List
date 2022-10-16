@@ -17,6 +17,7 @@ function ProductList(props) {
             handleDelete = {handleDelete}
             history = {props.history}
           />
+          
       </div>
     );
   }

@@ -6,7 +6,6 @@ import '../Assets/css/Product.css'
 
 
 function SearchBar(props) {
-  // const  products  = props.products;
   const [search, setNewSearch] = useState("");
   const { products } = props.products;
   const { handleDelete } = props;
@@ -43,35 +42,31 @@ function SearchBar(props) {
     return (
       <div>
         <input style={style} role="search" value={search} onChange= {handleSearchChange} className="form-control me-2 d-flex"  type="text" placeholder="Search" aria-label="Search"/>
-      <div>
           <div id='container'>
           <Row>
-          {filtered.map((product) => {
-            return(
-                <Card style={style2}>
-                  <Card.Body>
-                    <Card.Title>
-                      {product.product} 
-                      <Button className='rbtn' variant="outline-danger" size="sm" onClick={(e) => handleDelete(product)}>
+          {filtered.length > 0 ? filtered.map((product) => (
+              <Card style={style2}>
+                <Card.Body>
+                  <Card.Title>
+                    {product.product} 
+                    <Button className='rbtn' variant="outline-danger" size="sm" onClick={(e) => handleDelete(product)}>
                         Remove
                       </Button>
-                    </Card.Title>
-                    <Card.Text>
-                      <span>Price-</span>
-                      {product.price}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-                 )
-                })}
-          </Row>
-          </div>
-      </div>
-   </div>
-   
-   
-    );
-  }
-  
+                  </Card.Title>
+                  <Card.Text>
+                    <span>Price-</span>
+                    {product.price}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            )):
+            <h5 style={style}>No Product Found &#160;  <span>!!</span></h5>
+          }
+        </Row>
+        </div>
+   </div>  
+    )
+}
+
   export default SearchBar;
   

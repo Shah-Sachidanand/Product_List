@@ -23,9 +23,7 @@ function Product(props) {
   return (
       <div id='container'>
         <Row>
-          {products && 
-          products.map((product) => {
-            return(
+          {products.length > 0 ? products.map((product) => (
               <Card style={style}>
                 <Card.Body>
                   <Card.Title>
@@ -40,10 +38,15 @@ function Product(props) {
                   </Card.Text>
                 </Card.Body>
               </Card>
-            )
-          })}
+            )):
+            <h5 style={style}>No Product Found &#160;  <span>!!</span></h5>
+          }
         </Row>
         </div>
   )}
 
 export default Product;
+
+// {products.length > 0 ? products.map((product) => (
+//   <Product key={product.key}/>
+// )) : <p>No results found</p> }

@@ -13,11 +13,11 @@ function App() {
 
   if(!token) {
     return (
-      <Routes>
-      <Route path='/' element={<LogIn setToken={setToken} />} />
-      </Routes>
+      <LogIn setToken={setToken}/>
+
     )    
   }
+  if(token){
   return (
     <div className="App">
       <NavBar/>
@@ -28,6 +28,7 @@ function App() {
     </Routes>
   </div>
   );
+}
 }
 
 

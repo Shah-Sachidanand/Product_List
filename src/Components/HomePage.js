@@ -20,6 +20,7 @@ function HomePage(props) {
              history = {props.history}
              handleDelete = {handleDelete}
              /> 
+             
              </div>
 
   </div>
