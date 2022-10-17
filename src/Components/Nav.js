@@ -22,8 +22,9 @@ function NavBar(){
     const navigate = useNavigate();
     const logout = () => {
       sessionStorage.clear();
-      window.location.reload(false);
       navigate('/');
+      window.location.reload(false);
+
 
       openNotify(
         'success',
