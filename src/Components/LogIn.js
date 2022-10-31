@@ -34,10 +34,22 @@ function LogIn({setToken}) {
         'success',
         'You are Logged In',
         'Welcome To Home Page'
-      );
+      )
   };
   return (
+    
     <div className="Auth-form-container">
+      <div style={{margin:'70px'}}>
+        <h6>
+          You Can LogIn Using this
+        </h6>
+        <p>
+          Email: eve.holt@reqres.in
+        </p>
+        <p>
+          Pssword: pistol
+        </p>
+      </div>
     <form onSubmit={handleSubmit} className="Auth-form">
       <div className="Auth-form-content">
         <h3 className="Auth-form-title">Log In</h3>

@@ -10,21 +10,20 @@ function Main(props) {
 
   const [product, setProduct] = useState('');
   const [price, setPrice] = useState('');
-  const [productVal, setProductVal] = useState();
-  const [priceVal, setPriceVal] = useState();
+  const [desc, setDesc] = useState('');
+
 
 const handleSubmit = (e) => {
-  setPriceVal('');
-  setProductVal('');
+  e.preventDefault();
+  e.target.reset();
   props.dispatch(
     addProduct({
       key: Math.round(Math.random() * 100),
       product : product,
-      price : price
+      price : price,
+      desc : desc
     })
   );
-  setProduct('');
-  setPrice('');
 
   openNotify(
     'success',
@@ -45,8 +44,9 @@ const handleSubmit = (e) => {
       <Form style={style} onSubmit={handleSubmit}>
       <h4 className='mb-3 '> Lets Add A Product</h4>
       <Form.Group className="mb-3">
-        <Form.Control type='text' value={productVal}  required onChange={e => setProduct(e.target.value)} placeholder='Product Name'/>
-        <Form.Control className='mt-3'value={priceVal} type='number' required onChange={e => setPrice(e.target.value)} placeholder='Price'/>
+        <Form.Control type='text'  required onChange={e => setProduct(e.target.value)} placeholder='Product Name'/>
+        <Form.Control className='mt-3' type='number' required onChange={e => setPrice(e.target.value)} placeholder='Price'/>
+        <Form.Control className='mt-3' type='text' required  onChange={e => setDesc(e.target.value)} placeholder='Description'/>
       </Form.Group>
       <Button type='submit'>Add Product</Button>
       </Form>

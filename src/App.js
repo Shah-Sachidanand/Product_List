@@ -8,12 +8,14 @@ import NavBar from './Components/Nav';
 
 
 
+
 function App() {
   const { token, setToken } = useToken();
-
+ 
   if(!token) {
-    return (
+        return (
       <LogIn setToken={setToken}/>
+      
 
     )    
   }

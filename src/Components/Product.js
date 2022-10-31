@@ -33,10 +33,12 @@ function Product(props) {
                       </Button>
                   </Card.Title>
                   <Card.Text>
+                   <p style={{fontSize:'10px'}}>{product.desc}</p>
                     <span>Price-</span>
                     {product.price}
                   </Card.Text>
                 </Card.Body>
+                
               </Card>
             )):
             <h5 style={style}>No Product Found &#160;  <span>!!</span></h5>
