@@ -55,6 +55,7 @@ function SearchBar(props) {
                       </Button>
                   </Card.Title>
                   <Card.Text>
+                  <p style={{fontSize:'10px'}}>{product.desc}</p>
                     <span>Price-</span>
                     {product.price}
                   </Card.Text>
